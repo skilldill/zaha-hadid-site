@@ -4,26 +4,26 @@
             <img src="../../../assets/logo.svg" alt="Zaha Hadid Architects logo worlds">
         </router-link>
         <ul class="menu-items">
-            <app-menu-item>
-                <router-link :to="urls.ABOUT">About us</router-link>
+            <app-menu-item :path="urls.ABOUT">
+                About us
             </app-menu-item>
-            <app-menu-item>
-                <router-link to="/about">Projects</router-link>
+            <app-menu-item :path="urls.PROJECTS">
+                Projects
             </app-menu-item>
-            <app-menu-item class="menu-item">
-                <router-link to="/about">Career</router-link>
+            <app-menu-item :path="urls.CAREER">
+                Career
             </app-menu-item>
-            <app-menu-item class="menu-item">
-                <router-link to="/about">Our team</router-link>
+            <app-menu-item :path="urls.TEAM">
+                Our team
             </app-menu-item>
-            <app-menu-item class="menu-item">
-                <router-link to="/about">News</router-link>
+            <app-menu-item :path="urls.NEWS">
+                News
             </app-menu-item>
-            <app-menu-item class="menu-item">
-                <router-link to="/about">Publications</router-link>
+            <app-menu-item :path="urls.PUBLICATIONS">
+                Publications
             </app-menu-item>
-            <app-menu-item class="menu-item">
-                <router-link to="/about">Contacts</router-link>
+            <app-menu-item :path="urls.CONTACTS">
+                Contacts
             </app-menu-item>
         </ul>
     </nav>
@@ -41,7 +41,10 @@ export default {
         return {
             urls: ROUTER_URLS
         }
-    }
+    },
+    computed: {
+        routePath() { return this.$router.currentRoute.path }
+    } 
 }
 </script>
 <style lang="scss" scoped>
@@ -49,6 +52,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 20px;
 
     .menu-items {
         display: flex;

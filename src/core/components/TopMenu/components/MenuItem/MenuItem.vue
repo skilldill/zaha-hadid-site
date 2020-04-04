@@ -3,25 +3,40 @@
         @mousemove="handleMouseMove"
         @mouseleave="handleMouseLeave"    
     >
-        <slot></slot>
+        <router-link :to="path">
+            <slot></slot>
+        </router-link>
         <div 
             class="decoration"
-            :class="{hovered: isHovered}"
+            :class="{active: isHovered || isActive}"
         ></div>
     </li>
 </template>
 <script>
 export default {
     name: "MenuItem",
+    props: {
+        path: {
+            type: String,
+            required: true
+        }
+    },
     data() {
         return {
-            isHovered: false
+            isHovered: false,
+            isActive: false,
+        }
+    },
+    watch: {
+        $route () {
+            this.isActive = this.$route.path === this.path;
         }
     },
     methods: {
         handleMouseMove() { this.isHovered = true },
         handleMouseLeave() { this.isHovered = false }
-    }
+    },
+    
 }
 </script>
 <style lang="scss" scoped>
@@ -33,7 +48,7 @@ export default {
     margin-top: 2px;
 }
 
-.hovered {
+.active {
     width: calc(100% + 0px);
 }
 </style>

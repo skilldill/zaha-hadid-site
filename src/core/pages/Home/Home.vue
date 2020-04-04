@@ -1,11 +1,18 @@
 <template>
     <div class="home">
-        <h1>Home</h1>
+        <app-home-header />
+        <app-home-description />
     </div>
 </template>
 <script>
+import { HomeHeader, HomeDescription } from "./blocks";
+
 export default {
-    name: "Home"
+    name: "Home",
+    components: {
+        "app-home-header": HomeHeader,
+        "app-home-description": HomeDescription
+    }
 }
 </script>
 <style lang="scss" scoped>
