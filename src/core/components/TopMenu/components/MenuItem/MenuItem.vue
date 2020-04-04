@@ -47,7 +47,16 @@ export default {
     transition: all .3s;
     margin-top: 2px;
 }
+.menu-item {
+    list-style-type: none;
+    margin-left: 52px;
 
+    a {
+        color: black;
+        text-decoration: none;
+        font-size: 16px;
+    }
+}
 .active {
     width: calc(100% + 0px);
 }
