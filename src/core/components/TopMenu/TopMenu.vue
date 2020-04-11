@@ -56,17 +56,6 @@ export default {
 
     .menu-items {
         display: flex;
-
-        .menu-item {
-            list-style-type: none;
-            margin-left: 52px;
-        
-            a {
-                color: black;
-                text-decoration: none;
-                font-size: 16px;
-            }
-        }
     }
 }
 </style>

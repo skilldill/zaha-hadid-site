@@ -61,6 +61,7 @@ export default {
         }
 
         img {
+            margin-top: 28px;
             width: 100%;
         }
     }
@@ -70,6 +71,16 @@ export default {
 
         img {
             width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .home-description {
+        .photo {
+            img {
+                width: 760px;
+            }
         }
     }
 }

@@ -24,7 +24,7 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  max-width: 1600px;
+  max-width: 1400px;
   margin: auto;
   padding: 0 100px;
 }

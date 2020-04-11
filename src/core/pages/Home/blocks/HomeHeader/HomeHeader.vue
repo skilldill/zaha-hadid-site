@@ -5,8 +5,9 @@
                 Architecture is like writing.
                 You have to edit it over and over so it looks effortless.
             </q>
-            <p>
-                Ed dapibus arcu ut viverra fermentum.
+            <p>     
+                Zaha Hadid (1950-2016)
+                AA Dipl, RIBA, ARB, BDA, Hon.F.AIA
             </p>
         </div>
         <div class="photo">
@@ -38,10 +39,11 @@ export default {
         }
 
         p {
-            width: 191px;
+            width: 278px;
             color: #7C7B7B;
             font-size: 16px;
             margin: 0;
+            text-align: right
         }
     }
 
