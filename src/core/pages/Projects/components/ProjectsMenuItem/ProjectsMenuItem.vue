@@ -32,8 +32,14 @@ export default {
         }
     },
     methods: {
-        handleMouseEnter() { this.hovered = true },
-        handleMouseLeave() { this.hovered = false }
+        handleMouseEnter(event) { 
+            this.$emit('mouseenter', event);
+            this.hovered = true;
+        },
+        handleMouseLeave(event) { 
+            this.hovered = false;
+            this.$emit('mouseleave', event);
+        }
     }
 }
 </script>
