@@ -27,5 +27,6 @@ body {
   max-width: 1400px;
   margin: auto;
   padding: 0 100px;
+  position: relative;
 }
 </style>
