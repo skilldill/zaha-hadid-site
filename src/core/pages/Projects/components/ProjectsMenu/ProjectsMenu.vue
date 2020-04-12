@@ -7,11 +7,11 @@
             />
             <app-projects-menu-item 
                 content="Interior Design"
-                :path="`projects/${urls.DESIGN}`"
+                :path="`projects/${urls.INTERIOR_DESIGN}`"
             />
             <app-projects-menu-item 
                 content="Design"
-                :path="`projects/${urls.INTERIOR_DESIGN}`"
+                :path="`projects/${urls.DESIGN}`"
             />
             <app-projects-menu-item 
                 content="Masterplans"

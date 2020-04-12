@@ -8,3 +8,8 @@ export default {
     name: "Masterplans"
 }
 </script>
+<style lang="scss" scoped>
+.masterplans {
+    
+}
+</style>
