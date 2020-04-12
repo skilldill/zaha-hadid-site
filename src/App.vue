@@ -17,11 +17,13 @@ export default {
 </script>
 
 <style>
+@import "./assets/fonts/HelveticaNeueCyr/stylesheet.css";
+
 body {
   margin: 0px;
 }
 #app {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'HelveticaNeueCyr', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   max-width: 1400px;

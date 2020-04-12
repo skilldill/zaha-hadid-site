@@ -1,13 +1,11 @@
 <template>
     <div :class="{ 'projects-menu': true, 'projects-menu-open': openedMenu }">
-        <div :class="{ 'border border-top': true, 'hide-border': hideBorder }"></div>
         <div class="items">
             <app-projects-menu-item content="Architecture" />
             <app-projects-menu-item content="Interior Design" />
             <app-projects-menu-item content="Design" />
             <app-projects-menu-item content="Masterplans" />
         </div>
-        <div :class="{ 'border border-bottom': true, 'hide-border': hideBorder }"></div>
     </div>
 </template>
 <script>
@@ -21,34 +19,22 @@ export default {
     data() {
         return {
             openedMenu: false,
-            hideBorder: false,
         }
     },
     created() {
         setTimeout(() => {
             this.openedMenu = true;
-        }, 1000);
-        setTimeout(() => {
-            this.hideBorder = true;
-        }, 1800);
+        }, 10);
     }
 }
 </script>
 <style lang="scss" scoped>
 .projects-menu {
     position: relative;
-    transition: all .8s;
+    transition: all 1s;
     overflow: hidden;
     height: 1px;
-
-    .border {
-        left: 0px;
-        transition: all .7s;
-        position: absolute;
-        height: 1px;
-        width: calc(100% - 0px);
-        background-color: #000;
-    }
+    opacity: 0;
 
     .border-top { top: 0px }
     .border-bottom { bottom: 0px }
@@ -74,7 +60,6 @@ export default {
 
 .projects-menu-open {
     height: 750px;
+    opacity: 1;
 }
-
-
 </style>

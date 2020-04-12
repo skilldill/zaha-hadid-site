@@ -65,7 +65,7 @@ export default {
 
         span {
             display: block;
-            width: 1000px;
+            width: 1100px;
         }
     }
 
