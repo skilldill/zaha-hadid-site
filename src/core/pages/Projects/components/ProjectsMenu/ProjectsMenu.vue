@@ -3,19 +3,19 @@
         <div class="items">
             <app-projects-menu-item 
                 content="Architecture"
-                :path="urls.ARCHITECTURE"
+                :path="`projects/${urls.ARCHITECTURE}`"
             />
             <app-projects-menu-item 
                 content="Interior Design"
-                :path="urls.DESIGN"
+                :path="`projects/${urls.DESIGN}`"
             />
             <app-projects-menu-item 
                 content="Design"
-                :path="urls.INTERIOR_DESIGN"
+                :path="`projects/${urls.INTERIOR_DESIGN}`"
             />
             <app-projects-menu-item 
                 content="Masterplans"
-                :path="urls.MASTERPLANS"
+                :path="`projects/${urls.MASTERPLANS}`"
             />
         </div>
     </div>
@@ -38,7 +38,7 @@ export default {
     created() {
         setTimeout(() => {
             this.openedMenu = true;
-        }, 10);
+        }, 500);
     }
 }
 </script>

@@ -28,8 +28,8 @@ export default {
         }
     },
     watch: {
-        $route () {
-            this.isActive = this.$route.path === this.path;
+        $route() {
+            this.isActive = this.$route.path.indexOf(this.path) !== -1;
         }
     },
     methods: {

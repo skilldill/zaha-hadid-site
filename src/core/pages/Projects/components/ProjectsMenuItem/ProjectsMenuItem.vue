@@ -1,10 +1,9 @@
 <template>
-    <div class="projects-menu-item">
-        <a 
-            :href="path ? `projects/${path}` : '#'"
-            @mouseenter="handleMouseEnter"
-            @mouseleave="handleMouseLeave"
-        >
+    <div class="projects-menu-item"
+        @mouseenter="handleMouseEnter"
+        @mouseleave="handleMouseLeave"
+    >
+        <router-link :to="path ? `/${path}` : '#'">
             <div :class="{ 'effect-content': true, 'effect-content-hover': hovered }">
                 <span>
                     {{ content }}
@@ -13,7 +12,7 @@
             <div class="content">
                 {{ content }}
             </div>
-        </a>
+        </router-link>
     </div>
 </template>
 <script>

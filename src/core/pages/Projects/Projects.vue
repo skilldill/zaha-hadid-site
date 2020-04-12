@@ -1,9 +1,12 @@
 <template>
     <div class="projects">
-        <app-projects-menu class="wrapper-projects-menu" />
-        <div :class="{'picture': true, 'picture-loaded': loaded}">
-            <img src="../../../assets/projects/projects_wall.png" alt="zaha hadid building">
+        <div class="projects-menu-content" v-if="showMenuBlock">
+            <app-projects-menu class="wrapper-projects-menu" />
+            <div :class="{'picture': true, 'picture-loaded': loaded}">
+                <img src="../../../assets/projects/projects_wall.png" alt="zaha hadid building">
+            </div>
         </div>
+        <router-view></router-view>
     </div>
 </template>
 <script>
@@ -17,6 +20,15 @@ export default {
     data() {
         return {
             loaded: false,
+            showMenuBlock: true
+        }
+    },
+    watch: {
+        $route() {
+            // Проверка можно ли показывать меню блок Projects
+            const { path } = this.$route;
+            const routeParts = path.split("/");
+            this.showMenuBlock = !(routeParts.length >= 3);
         }
     },
     created() {
