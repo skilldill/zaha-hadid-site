@@ -34,11 +34,10 @@ export default {
     padding-bottom: 80px;
 
     .title {
-        font-weight: normal;
+        font-weight: 500;
         font-size: 150px;
         margin-bottom: 47px;
         text-align: right;
-        margin-right: 152px;
     }
 
     .content {

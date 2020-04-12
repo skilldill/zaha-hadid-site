@@ -1,15 +1,28 @@
 <template>
     <div :class="{ 'projects-menu': true, 'projects-menu-open': openedMenu }">
         <div class="items">
-            <app-projects-menu-item content="Architecture" />
-            <app-projects-menu-item content="Interior Design" />
-            <app-projects-menu-item content="Design" />
-            <app-projects-menu-item content="Masterplans" />
+            <app-projects-menu-item 
+                content="Architecture"
+                :path="urls.ARCHITECTURE"
+            />
+            <app-projects-menu-item 
+                content="Interior Design"
+                :path="urls.DESIGN"
+            />
+            <app-projects-menu-item 
+                content="Design"
+                :path="urls.INTERIOR_DESIGN"
+            />
+            <app-projects-menu-item 
+                content="Masterplans"
+                :path="urls.MASTERPLANS"
+            />
         </div>
     </div>
 </template>
 <script>
 import { ProjectsMenuItem } from "../ProjectsMenuItem";
+import { PROJECTS_ROUTER_URLS } from "../../constants";
 
 export default {
     name: "ProjectsMenu",
@@ -19,6 +32,7 @@ export default {
     data() {
         return {
             openedMenu: false,
+            urls: PROJECTS_ROUTER_URLS
         }
     },
     created() {

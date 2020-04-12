@@ -1,7 +1,7 @@
 <template>
     <div class="projects-menu-item">
         <a 
-            :href="path ? path : '#'"
+            :href="path ? `projects/${path}` : '#'"
             @mouseenter="handleMouseEnter"
             @mouseleave="handleMouseLeave"
         >
