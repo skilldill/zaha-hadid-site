@@ -21,6 +21,7 @@ export default {
 
 body {
   margin: 0px;
+  zoom: .75;
 }
 #app {
   font-family: 'HelveticaNeueCyr', Helvetica, Arial, sans-serif;
