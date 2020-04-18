@@ -3,9 +3,9 @@
         @mousemove="handleMouseMove"
         @mouseleave="handleMouseLeave"    
     >
-        <router-link :to="path">
+        <a @click.prevent="handleClick">
             <slot></slot>
-        </router-link>
+        </a>
         <div 
             class="decoration"
             :class="{active: isHovered || isActive}"
@@ -13,6 +13,8 @@
     </li>
 </template>
 <script>
+import { mapMutations } from "vuex";
+
 export default {
     name: "MenuItem",
     props: {
@@ -33,8 +35,14 @@ export default {
         }
     },
     methods: {
+        ...mapMutations(['setStateChangeRoute']),
         handleMouseMove() { this.isHovered = true },
-        handleMouseLeave() { this.isHovered = false }
+        handleMouseLeave() { this.isHovered = false },
+        handleClick() {
+            this.setStateChangeRoute(true);
+            setTimeout(() => this.$router.push(this.path), 900);
+            
+        }
     },
     
 }
@@ -55,6 +63,7 @@ export default {
         color: black;
         text-decoration: none;
         font-size: 16px;
+        cursor: pointer;
     }
 }
 .active {
