@@ -1,14 +1,15 @@
 <template>
     <div class="architectures-list">
         <app-architecture-item
-            v-for="architecture in architectures"
+            v-for="(architecture, index) in architectures"
             :key="architecture.name"
             :architecture="architecture"
+            :duration="100 * (index + 5)"
         />
     </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import { ArchitectureItem } from "../ArchitectureItem";
 
 export default {
@@ -16,15 +17,15 @@ export default {
     components: {
         "app-architecture-item": ArchitectureItem
     },
-    computed: mapState({
-        architectures: (state) => state.architecture.architectures
+    computed: mapGetters({
+        architectures: "foundArchitectures"
     })
 }
 </script>
 <style lang="scss" scoped>
 .architectures-list {
     position: absolute;
-    top: 333px;
+    top: 270px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

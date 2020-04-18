@@ -3,8 +3,7 @@ export const ACRHITECTURE_ACTIONS_TYPES = {
 }
 
 export const architectureActions = {
-    changeQuery({ commit }, value) {
-        console.log(value);        
+    changeQuery({ commit }, value) {     
         commit(
             ACRHITECTURE_ACTIONS_TYPES.CHANGE_QUERY,
             value

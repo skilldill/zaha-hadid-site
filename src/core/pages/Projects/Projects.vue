@@ -2,7 +2,13 @@
     <div class="projects">
         <div class="projects-menu-content" v-if="showMenuBlock">
             <app-projects-menu class="wrapper-projects-menu" />
-            <div :class="{'picture': true, 'picture-loaded': loaded}">
+            <div 
+                :class="{
+                    'picture': true, 
+                    'picture-loaded': loaded,
+                    'fade-out-picture': loaded && startChangeRoute
+                }"
+            >
                 <img src="../../../assets/projects/projects_wall.png" alt="zaha hadid building">
             </div>
         </div>
@@ -11,6 +17,7 @@
 </template>
 <script>
 import { ProjectsMenu } from "./components";
+import { mapState } from "vuex";
 
 export default {
     name: "Projects",
@@ -31,6 +38,9 @@ export default {
             this.showMenuBlock = !(routeParts.length >= 3);
         }
     },
+    computed: mapState({
+        startChangeRoute: state => state.projectsMenu.startChangeRoute
+    }),
     created() {
         setTimeout(() => { 
             this.loaded = true;
@@ -67,6 +77,10 @@ export default {
         img {
             transform: scale(1);
         }
+    }
+
+    .fade-out-picture {
+        opacity: 0;
     }
 }
 </style>

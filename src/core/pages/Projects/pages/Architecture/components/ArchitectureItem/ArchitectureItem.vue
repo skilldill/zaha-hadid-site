@@ -1,6 +1,8 @@
 <template>
-    <div class="architecture-item">
-        <img :src="architecture.picture" :alt="architecture.name">
+    <div :class="{'architecture-item': true, 'fade-in': visible}">
+        <div class="picture">
+            <img :src="architecture.picture" :alt="architecture.name">
+        </div>
         <div class="content">
             <h3>{{architecture.name}}</h3>
             <p class="place">{{architecture.place}}</p>
@@ -12,7 +14,18 @@
 export default {
     name: "ArchitectureItem",
     props: {
-        architecture: Object
+        architecture: Object,
+        duration: Number
+    },
+    data() {
+        return {
+            visible: false
+        }
+    },
+    created() {
+        setTimeout(() => {
+            this.visible = true;
+        }, this.duration)
     }
 }
 </script>
@@ -20,9 +33,25 @@ export default {
 .architecture-item {
     width: 390px;
     margin-bottom: 70px;
+    transition: all .9s;
     
-    img {
+    // for effect
+    opacity: 0;
+    transform: translateY(-100px);
 
+    img {
+        transition: all .5s;
+
+        &:hover {
+            transition: all .5s;
+            transform: scale(1.1);
+        }
+    }
+
+    .picture {
+        width: 390px;
+        height: 550px;
+        overflow: hidden;
     }
 
     .content {
@@ -46,5 +75,10 @@ export default {
             font-size: 14px;
         }
     }
+}
+
+.fade-in {
+    transform: translateY(0px);
+    opacity: 1;
 }
 </style>

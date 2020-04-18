@@ -8,6 +8,7 @@
                     v-model="findValue"
                     @focus="handleFocus"
                     @blur="handleBlur"
+                    @input="handleInput"
                 >
                 <img 
                     src="../../../assets/icons/zoomer.svg" 
@@ -19,6 +20,8 @@
     </div>
 </template>
 <script>
+import { mapMutations } from "vuex";
+
 export default {
     name: "Finder",
     data() {
@@ -33,8 +36,12 @@ export default {
         }
     },
     methods: {
+        ...mapMutations([ 'changeQuery' ]),
         handleFocus() { return this.focused = true },
-        handleBlur() { return this.focused = false }
+        handleBlur() { return this.focused = false },
+        handleInput(event) {
+            this.changeQuery(event.currentTarget.value);
+        }
     }
 }
 </script>

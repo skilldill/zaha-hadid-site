@@ -1,5 +1,5 @@
 export const architectureMutations = {
-    changeQuery({ architecture }, value) {
-        architecture.query = value
+    changeQuery(state, value) {
+        state.query = value
     }
 }

@@ -3,7 +3,10 @@
         @mouseenter="handleMouseEnter"
         @mouseleave="handleMouseLeave"
     >
-        <router-link :to="path ? `/${path}` : '#'">
+        <a 
+            :to="path ? `/${path}` : '#'"
+            @click.prevent="handleClick"
+        >
             <div :class="{ 'effect-content': true, 'effect-content-hover': hovered }">
                 <span>
                     {{ content }}
@@ -12,7 +15,7 @@
             <div class="content">
                 {{ content }}
             </div>
-        </router-link>
+        </a>
     </div>
 </template>
 <script>
@@ -38,6 +41,10 @@ export default {
         handleMouseLeave(event) { 
             this.hovered = false;
             this.$emit('mouseleave', event);
+        },
+        handleClick() {
+            new Promise((resolve) => this.$emit('click', resolve))
+            .then(() => this.$router.push(this.path));
         }
     }
 }
