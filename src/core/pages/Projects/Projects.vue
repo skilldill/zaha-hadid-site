@@ -39,7 +39,7 @@ export default {
         }
     },
     computed: mapState({
-        startChangeRoute: state => state.projectsMenu.startChangeRoute
+        startChangeRoute: state => state.stateRoutes.startChangeRoute
     }),
     created() {
         setTimeout(() => { 
