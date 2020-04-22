@@ -1,13 +1,17 @@
 <template>
     <div class="architecture">
-        <div :class="{'title': true, 'title-fade-in': showTitle}">
+        <div 
+            :class="{
+                'title': true,
+                'title-fade-in': showTitle && !startChangeRoute
+            }">
             <h1>Architecture</h1>
         </div>
-        <app-architecture-list />
+        <app-architecture-list :isShow="!startChangeRoute" />
     </div>
 </template>
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapState } from "vuex";
 import { ArchitectureList } from "./components/ArchitectureList";
 
 export default {
@@ -20,6 +24,11 @@ export default {
             showTitle: false
         }
     },
+    computed: {
+        ...mapState({
+            startChangeRoute: (state) => state.stateRoutes.startChangeRoute
+        })
+    },
     methods: {
         ...mapMutations(['setStartChangeRoute'])
     },
@@ -27,7 +36,7 @@ export default {
         this.setStartChangeRoute(false);
         setTimeout(() => {
             this.showTitle = true;
-        }, 10)
+        }, 100)
     }
 }
 </script>

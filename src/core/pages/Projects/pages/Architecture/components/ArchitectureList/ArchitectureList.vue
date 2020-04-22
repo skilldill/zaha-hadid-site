@@ -1,5 +1,9 @@
 <template>
-    <div class="architectures-list">
+    <div :class="{
+            'architectures-list': true,
+            'architectures-list-show': isShow
+        }"
+    >
         <app-architecture-item
             v-for="(architecture, index) in architectures"
             :key="architecture.name"
@@ -17,17 +21,28 @@ export default {
     components: {
         "app-architecture-item": ArchitectureItem
     },
-    computed: mapGetters({
-        architectures: "foundArchitectures"
-    })
+    props: {
+        isShow: {
+            type: Boolean,
+            default: true
+        }
+    },
+    computed: { 
+        ...mapGetters({ architectures: "foundArchitectures" }),
+    }
 }
 </script>
 <style lang="scss" scoped>
 .architectures-list {
+    opacity: 0;
     position: absolute;
     top: 270px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    transition: all .5s;
+}
+.architectures-list-show {
+    opacity: 1;
 }
 </style>

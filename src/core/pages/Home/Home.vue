@@ -6,6 +6,7 @@
     </div>
 </template>
 <script>
+import { mapMutations, mapState } from "vuex";
 import { HomeHeader, HomeDescription, HomeBottom } from "./blocks";
 
 export default {
@@ -14,6 +15,15 @@ export default {
         "app-home-header": HomeHeader,
         "app-home-description": HomeDescription,
         "app-home-bottom": HomeBottom
+    },
+    computed: mapState({
+        startChangeRoute: state => state.stateRoutes.startChangeRoute
+    }),
+    methods: {
+        ...mapMutations(['setStartChangeRoute'])
+    },
+    created() {
+        this.setStartChangeRoute(false);
     }
 }
 </script>

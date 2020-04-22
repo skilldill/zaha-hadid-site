@@ -1,13 +1,23 @@
 <template>
     <header class="home-header">
         <div class="description">
-            <div :class="{'q-wrap': true, 'fadein-q-wrap': showContentQ}">
+            <div 
+                :class="{
+                    'q-wrap': true,
+                    'fadein-q-wrap': showContentQ
+                }
+            ">
                 <q>
                     Architecture is like writing.
                     You have to edit it over and over so it looks effortless.
                 </q>
             </div>
-            <div :class="{'p-wrap': true, 'fadein-p-wrap': showContentP}">
+            <div 
+                :class="{
+                    'p-wrap': true,
+                    'fadein-p-wrap': showContentP
+                }"
+            >
                 <p>     
                     Zaha Hadid (1950-2016)
                     AA Dipl, RIBA, ARB, BDA, Hon.F.AIA
@@ -15,7 +25,12 @@
             </div>
         </div>
         <div class="photo-wrap">
-            <div :class="{photo: true, 'fadein-photo': showPhoto}">
+            <div 
+                :class="{
+                    photo: true, 
+                    'fadein-photo': showPhoto,
+                }"
+            >
                 <img 
                     src="../../../../../assets/home/home-header.png"
                     alt="Zaha Hadid"
@@ -26,6 +41,8 @@
     </header>
 </template>
 <script>
+import { mapState } from "vuex";
+
 export default {
     name: "HomeHeader",
     data() {
@@ -35,10 +52,20 @@ export default {
             showContentP: false
         }
     },
+    watch: {
+        startChangeRoute() {
+            setTimeout(() => { this.showContentQ = false }, 100);
+            setTimeout(() => { this.showContentP = false }, 200)
+            setTimeout(() => { this.showPhoto = false }, 300);
+        }
+    },
+    computed: mapState({
+        startChangeRoute: state => state.stateRoutes.startChangeRoute
+    }),
     created() {
-        setTimeout(() => { this.showContentQ = true }, 300);
-        setTimeout(() => { this.showContentP = true }, 500)
-        setTimeout(() => { this.showPhoto = true }, 900);
+        setTimeout(() => { this.showContentQ = true }, 100);
+        setTimeout(() => { this.showContentP = true }, 400)
+        setTimeout(() => { this.showPhoto = true }, 500);
     }
 }
 </script>
@@ -75,6 +102,11 @@ export default {
 
         .fadein-photo {
             height: 600px;
+        }
+
+        .fadeout-photo {
+            height: 0px;
+            transition: all .5s;
         }
     }
 

@@ -3,7 +3,7 @@
         :class="{ 
             'projects-menu': true, 
             'projects-menu-open': openedMenu,
-            'fade-out-menu': changedRoute
+            'fade-out-menu': changedRoute || startChangeRoute
         }"
     >
         <div class="items">
@@ -31,7 +31,8 @@
     </div>
 </template>
 <script>
-import { mapMutations } from "vuex";
+import { CHANGE_ROUTE_DELAY } from "../../../../../shared/constants";
+import { mapMutations, mapState } from "vuex";
 import { ProjectsMenuItem } from "../ProjectsMenuItem";
 import { PROJECTS_ROUTER_URLS } from "../../constants";
 
@@ -47,6 +48,9 @@ export default {
             urls: PROJECTS_ROUTER_URLS
         }
     },
+    computed: mapState({
+        startChangeRoute: state => state.stateRoutes.startChangeRoute
+    }),
     created() {
         setTimeout(() => {
             this.openedMenu = true;
@@ -57,7 +61,7 @@ export default {
         handleClickMenuItem(changeRoute) {
             this.changedRoute = true;
             setTimeout(() => this.setStartChangeRoute(true), 500);
-            setTimeout(() => { changeRoute() }, 900);
+            setTimeout(() => { changeRoute() }, CHANGE_ROUTE_DELAY);
         }
     }
 }

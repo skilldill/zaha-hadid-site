@@ -14,6 +14,7 @@
 </template>
 <script>
 import { mapMutations } from "vuex";
+import { CHANGE_ROUTE_DELAY } from "../../../../../shared/constants";
 
 export default {
     name: "MenuItem",
@@ -35,12 +36,12 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(['setStateChangeRoute']),
+        ...mapMutations(['setStartChangeRoute']),
         handleMouseMove() { this.isHovered = true },
         handleMouseLeave() { this.isHovered = false },
         handleClick() {
-            this.setStateChangeRoute(true);
-            setTimeout(() => this.$router.push(this.path), 900);
+            this.setStartChangeRoute(true);
+            setTimeout(() => this.$router.push(this.path), CHANGE_ROUTE_DELAY);
             
         }
     },

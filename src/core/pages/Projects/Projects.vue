@@ -3,6 +3,7 @@
         <div class="projects-menu-content" v-if="showMenuBlock">
             <app-projects-menu class="wrapper-projects-menu" />
             <div 
+                v-if="showMenuBlock"
                 :class="{
                     'picture': true, 
                     'picture-loaded': loaded,
@@ -17,7 +18,7 @@
 </template>
 <script>
 import { ProjectsMenu } from "./components";
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 export default {
     name: "Projects",
@@ -41,10 +42,21 @@ export default {
     computed: mapState({
         startChangeRoute: state => state.stateRoutes.startChangeRoute
     }),
+    methods: {
+        ...mapMutations(['setStartChangeRoute'])
+    },
     created() {
-        setTimeout(() => { 
-            this.loaded = true;
-        }, 10);
+        this.setStartChangeRoute(false);
+        setTimeout(() => { this.loaded = true }, 100);
+    },
+    updated() {
+        //TODO: Придумать как ускорить анимацию
+        if (this.startChangeRoute) {
+            setTimeout(() => { 
+                this.setStartChangeRoute(false);
+                this.loaded = true
+            }, 1000);
+        } else { setTimeout(() => { this.loaded = true }, 100); }
     }
 }
 </script>

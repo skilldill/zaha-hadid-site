@@ -1,8 +1,8 @@
 <template>
     <nav class="top-menu">
-        <router-link :to="urls.HOME">
+        <a @click.prevent="handleClickLogo">
             <img src="../../../assets/logo.svg" alt="Zaha Hadid Architects logo worlds">
-        </router-link>
+        </a>
         <app-finder v-if="showFilnder"/>
         <ul class="menu-items">
             <app-menu-item :path="urls.ABOUT">
@@ -30,6 +30,8 @@
     </nav>
 </template>
 <script>
+import { mapMutations } from "vuex";
+import { CHANGE_ROUTE_DELAY } from "../../../shared/constants";
 import { Finder } from "../../../shared/components/Finder";
 import { MenuItem } from "./components/MenuItem";
 import { ROUTER_URLS } from "../../../shared/constants";
@@ -58,6 +60,17 @@ export default {
             this.showFilnder = 
                 this.$route.path.indexOf("architecture") !== -1 ||
                 this.$route.path.indexOf("design") !== -1
+        }
+    },
+    methods: {
+        ...mapMutations(['setStartChangeRoute']),
+        handleClickLogo() {
+            this.setStartChangeRoute(true);
+            setTimeout(() => 
+                this.$router.push(this.urls.HOME)
+                    .catch (err => { console.log(err) }),
+                CHANGE_ROUTE_DELAY
+            );
         }
     }
 }

@@ -9,3 +9,5 @@ export const ROUTER_URLS = {
     PUBLICATIONS: "/publications",
     CONTACTS: "/contacts"
 }
+
+export const CHANGE_ROUTE_DELAY = 1000;
