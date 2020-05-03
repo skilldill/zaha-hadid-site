@@ -1,6 +1,6 @@
 <template>
     <div class="design">
-        <div :class="{'title': true, 'title-loaded': titleLoaded}">
+        <div :class="{'title': true, 'title-loaded': titleLoaded && !startChangeRoute}">
             <div 
                 :class="{
                     'line': true,
@@ -23,6 +23,7 @@
 </template>
 <script>
 import { DesignList } from "./components/DesignList";
+import { mapState } from 'vuex';
 
 export default {
     name: "Design",
@@ -34,6 +35,11 @@ export default {
             showLine: false,
             titleLoaded: false
         }
+    },
+    computed: {
+        ...mapState({
+            startChangeRoute: (state) => state.stateRoutes.startChangeRoute
+        })
     },
     created() {
         setTimeout(() => { this.showLine = true }, 100);

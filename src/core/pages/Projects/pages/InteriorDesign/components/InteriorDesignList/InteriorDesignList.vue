@@ -32,9 +32,7 @@ export default {
     computed: mapGetters({
         interiorDesigns: "foundInteriorDesigns"
     }),
-    created() {
-        console.log(this.isShow);
-    }
+    created() {}
 }
 </script>
 <style lang="scss" scoped>

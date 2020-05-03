@@ -1,15 +1,15 @@
 <template>
-    <div :class="{'design-item': true, 'design-item-loaded': openCurtains}">
+    <div :class="{'design-item': true, 'design-item-loaded': changeOriginCurtains}">
         <div :class="{'picture': true, 'picture-show': changeOriginCurtains}">
-            <div 
+            <!-- <div 
                 :class="{
                     'curtains': true,
                     'curtains-open': openCurtains,
                     'curtains-origin-bottom': changeOriginCurtains,
                     'curtains-close': closeCurtains
                 }"
-            >
-            </div>
+            > -->
+            <!-- </div> -->
             <img :src="design.picture" :alt="design.name">
         </div>
         <h3>{{ design.name }}</h3>
@@ -34,9 +34,9 @@ export default {
         }
     },
     created() {
-        setTimeout(() => { this.openCurtains = true }, this.delay + 100);
-        setTimeout(() => { this.changeOriginCurtains = true }, this.delay + 900);
-        setTimeout(() => { this.closeCurtains = true }, this.delay + 1000);
+        setTimeout(() => { this.changeOriginCurtains = true }, this.delay + 100);
+        // setTimeout(() => { this.openCurtains = true }, this.delay + 100);
+        // setTimeout(() => { this.closeCurtains = true }, this.delay + 1000);
     }
 }
 </script>
@@ -49,6 +49,7 @@ export default {
         height: 800px;
 
         img {
+            transition: opacity .8s;
             opacity: 0;
         }
 

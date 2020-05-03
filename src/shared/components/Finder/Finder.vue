@@ -1,5 +1,5 @@
 <template>
-    <div class="finder">
+    <div :class="{finder: true, 'finder-hide': startChangeRoute }">
         <form>
             <div class="control">
                 <input 
@@ -20,20 +20,26 @@
     </div>
 </template>
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapState } from "vuex";
 
 export default {
     name: "Finder",
     data() {
         return {
             findValue: "",
-            focused: false
+            focused: false,
         }
     },
     computed: {
         showIcon() {
             return !!this.findValue.length || this.focused;
-        }
+        },
+        ...mapState({
+            startChangeRoute: (state) => {
+                console.log(state.stateRoutes.startChangeRoute);
+                return state.stateRoutes.startChangeRoute;
+            }
+        })
     },
     methods: {
         ...mapMutations([ 'changeQuery' ]),
@@ -42,12 +48,17 @@ export default {
         handleInput(event) {
             this.changeQuery(event.currentTarget.value);
         }
+    },
+    created() {
+        console.log(this.startChangeRoute);
     }
 }
 </script>
 <style lang="scss" scoped>
 .finder {
     margin-left: 70px;
+    opacity: 1;
+    transition: opacity .7s;
 
     .control {
         position: relative;
@@ -67,5 +78,9 @@ export default {
             bottom: 10px;
         }
     }
+}
+
+.finder-hide {
+    opacity: 0;
 }
 </style>

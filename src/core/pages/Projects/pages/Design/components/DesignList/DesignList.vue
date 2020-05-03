@@ -1,15 +1,20 @@
 <template>
-    <div class="design-list">
+    <div 
+        :class="{
+                'design-list': true,
+                'design-list-hide': startChangeRoute
+            }"
+        >
         <app-design-item 
             v-for="(design, index) in designs"
             :key="index"
             :design="design"
-            :delay="index * 300"
+            :delay="index * 500"
         />
     </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import { DesignItem } from "../DesignItem";
 
 export default {
@@ -20,8 +25,11 @@ export default {
     computed: {
         ...mapGetters({
             designs: "foundDesigns"
+        }),
+        ...mapState({
+            startChangeRoute: (state) => state.stateRoutes.startChangeRoute
         })
-    }
+    },
 }
 </script>
 <style lang="scss" scoped>
@@ -31,5 +39,11 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    opacity: 1;
+    transition: opacity .8s;
+}
+
+.design-list-hide {
+    opacity: 0;
 }
 </style>
