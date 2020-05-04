@@ -8,6 +8,7 @@
             v-for="(architecture, index) in architectures"
             :key="architecture.name"
             :architecture="architecture"
+            :id="index"
             :duration="100 * (index + 5)"
         />
     </div>

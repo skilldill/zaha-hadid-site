@@ -9,6 +9,9 @@ import {
 } from "../pages";
 
 import { projectPages } from "../pages/Projects";
+import {
+    SingleArchitecture
+} from "../pages/Projects/pages";
 
 Vue.use(VueRouter);
 
@@ -21,6 +24,11 @@ const routes = [
         name: "projects", 
         component: Projects,
         children: projectPages
+    },
+    { 
+        path: ROUTER_URLS.ARCHITECTURE_PAGE, 
+        name: "architecture_page",
+        component: SingleArchitecture
     }
 ]
 

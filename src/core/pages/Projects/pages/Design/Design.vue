@@ -1,21 +1,6 @@
 <template>
     <div class="design">
         <div :class="{'title': true, 'title-loaded': titleLoaded && !startChangeRoute}">
-            <div 
-                :class="{
-                    'line': true,
-                    'line-left': true,
-                    'line-show': showLine
-                }"
-            >
-            </div>
-            <div 
-                :class="{
-                    'line': true, 
-                    'line-right': true,
-                    'line-show': showLine
-                }"
-            ></div>
             <h1>Design</h1>
         </div>
         <app-design-list />
@@ -32,7 +17,6 @@ export default {
     },
     data() {
         return {
-            showLine: false,
             titleLoaded: false
         }
     },
@@ -42,9 +26,7 @@ export default {
         })
     },
     created() {
-        setTimeout(() => { this.showLine = true }, 100);
-        setTimeout(() => { this.titleLoaded = true }, 500);
-        setTimeout(() => { this.showLine = false }, 1400)
+        setTimeout(() => { this.titleLoaded = true }, 100);
     }
 }
 </script>

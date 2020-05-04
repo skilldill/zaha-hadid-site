@@ -1,5 +1,8 @@
 <template>
-    <div :class="{'architecture-item': true, 'fade-in': visible}">
+    <div 
+        :class="{'architecture-item': true, 'fade-in': visible}"
+        @click="handleClick"
+    >
         <div class="picture">
             <img :src="architecture.picture" :alt="architecture.name">
         </div>
@@ -11,11 +14,17 @@
     </div>
 </template>
 <script>
+import { 
+    CHANGE_ROUTE_DELAY, 
+    ROUTER_URLS
+} from "../../../../../../../shared/constants";
+
 export default {
     name: "ArchitectureItem",
     props: {
         architecture: Object,
-        duration: Number
+        duration: Number,
+        id: Number
     },
     data() {
         return {
@@ -26,6 +35,13 @@ export default {
         setTimeout(() => {
             this.visible = true;
         }, this.duration)
+    },
+    methods: {
+        handleClick() {
+            setTimeout(() => {
+                this.$router.push(ROUTER_URLS.ARCHITECTURE_PAGE.replace(':id', this.id));
+            }, CHANGE_ROUTE_DELAY);
+        }
     }
 }
 </script>

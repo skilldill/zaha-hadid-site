@@ -7,7 +7,8 @@ export const ROUTER_URLS = {
     TEAM: "/team",
     NEWS: "/news",
     PUBLICATIONS: "/publications",
-    CONTACTS: "/contacts"
+    CONTACTS: "/contacts",
+    ARCHITECTURE_PAGE: "/architecture_page/:id"
 }
 
 export const CHANGE_ROUTE_DELAY = 1000;

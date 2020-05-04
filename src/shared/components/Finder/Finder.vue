@@ -1,5 +1,5 @@
 <template>
-    <div :class="{finder: true, 'finder-hide': startChangeRoute }">
+    <div :class="{finder: true, 'finder-show': !startChangeRoute && showFinder }">
         <form>
             <div class="control">
                 <input 
@@ -28,6 +28,7 @@ export default {
         return {
             findValue: "",
             focused: false,
+            showFinder: false
         }
     },
     computed: {
@@ -36,7 +37,6 @@ export default {
         },
         ...mapState({
             startChangeRoute: (state) => {
-                console.log(state.stateRoutes.startChangeRoute);
                 return state.stateRoutes.startChangeRoute;
             }
         })
@@ -50,14 +50,14 @@ export default {
         }
     },
     created() {
-        console.log(this.startChangeRoute);
+        setTimeout(() => { this.showFinder = true }, 100);
     }
 }
 </script>
 <style lang="scss" scoped>
 .finder {
     margin-left: 70px;
-    opacity: 1;
+    opacity: 0;
     transition: opacity .7s;
 
     .control {
@@ -80,7 +80,7 @@ export default {
     }
 }
 
-.finder-hide {
-    opacity: 0;
+.finder-show {
+    opacity: 1;
 }
 </style>

@@ -17,7 +17,28 @@ export const architectureState = {
             name: "Heydar Aliyev Centre",
             place: "Baku, Azerbaijan",
             range: "2007-2012",
-            picture: require("../../assets/projects/acrhitectures/arch3.png")
+            picture: require("../../assets/projects/acrhitectures/arch3.png"),
+            additional: {
+                descriptionParts: [
+                    "As part of the former Soviet Union, the urbanism and architecture of Baku, the capital of Azerbaijan on the Western coast of the Caspian Sea, was heavily influenced by the planning of that era. Since its independence in 1991, Azerbaijan has invested heavily in modernising and developing Baku’s infrastructure and architecture, departing from its legacy of normative Soviet Modernism.",
+                    "Zaha Hadid Architects was appointed as design architects of the Heydar Aliyev Center following a competition in 2007. The Center, designed to become the primary building for the nation’s cultural programs, breaks from the rigid and often monumental Soviet architecture that is so prevalent in Baku, aspiring instead to express the sensibilities of Azeri culture and the optimism of a nation that looks to the future."
+                ],
+                coordinates: [
+                    "Baku, Azerbaijan",
+                    "2007 – 2012",
+                    "The Republic of Azerbaijan",
+                    "Building: 57,519m²",  
+                    "Site: 111,292m²", 
+                    "Footprint: 15,514m²"
+                ],
+                poster: require('../../assets/projects/acrhitectures/heyder_aliev/poster.png'),
+                photos: [
+                    require('../../assets/projects/acrhitectures/heyder_aliev/photo_1.png'),
+                    require('../../assets/projects/acrhitectures/heyder_aliev/photo_2.png'),
+                    require('../../assets/projects/acrhitectures/heyder_aliev/photo_3.png'),
+                    require('../../assets/projects/acrhitectures/heyder_aliev/photo_4.png')
+                ]
+            }
         },
         {
             name: "Roca London Gallery",
