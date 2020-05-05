@@ -2,15 +2,17 @@
     <div class="single-architecture" v-if="!!architecture">
         <div class="header">
             <div class="header-description">
-                <h1 class="title">{{architecture.name}}</h1>
+                <h1 
+                    :class="{'title': true, 'title-show': descriptionShow}"
+                >{{architecture.name}}</h1>
                 <p 
-                    class="description"
+                    :class="{'description': true, 'description-show': descriptionShow}"
                     v-for="(part, index) in architecture.additional.descriptionParts"
                     :key="index"
                 >{{part}}</p>
                 <div class="coordinates-block">
                     <p 
-                        class="coordinates"
+                        :class="{'coordinates': true, 'coordinates-show': descriptionShow }"
                         v-for="(item, index) in architecture.additional.coordinates"
                         :key="index"
                     >
@@ -18,7 +20,8 @@
                     </p>
                 </div>
             </div>
-            <div class="poster">
+            <div 
+                :class="{'poster': true, 'poster-show': posterShow}">
                 <img 
                     :src="architecture.additional.poster" 
                     :alt="architecture.name"
@@ -39,13 +42,15 @@
     </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 export default {
     name: "SingleArchitecture",
     data() {
         return {
-            architecture: null
+            architecture: null,
+            posterShow: false,
+            descriptionShow: false
         }
     },
     computed: {
@@ -53,8 +58,14 @@ export default {
             architectures: state => state.architecture.architectures
         })
     },
+    methods: {
+        ...mapMutations(['setStartChangeRoute'])
+    },
     created() {
+        this.setStartChangeRoute(false);
         this.architecture = this.architectures[this.$route.params.id];
+        setTimeout(() => { this.descriptionShow =true }, 50)
+        setTimeout(() => { this.posterShow = true }, 300);
     }
 }
 </script>
@@ -64,7 +75,6 @@ export default {
 
     .header {
         display: flex;
-        
         position: relative;
 
         .title {
@@ -76,6 +86,14 @@ export default {
             line-height: 100px;
             letter-spacing: 1px;
             color: #000000;
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: all 1.1s;
+        }
+
+        .title-show {
+            transform: translateY(0px);
+            opacity: 1;
         }
 
         .description {
@@ -84,6 +102,14 @@ export default {
             font-weight: normal;
             font-size: 16px;
             line-height: 24px;
+            transform: translate(50px);
+            opacity: 0;
+            transition: all 1.1s;
+        }
+
+        .description-show {
+            transform: translate(0px);
+            opacity: 1;
         }
 
         .coordinates-block {
@@ -97,6 +123,31 @@ export default {
             line-height: 24px;
             font-size: 16px;
             color: #767676;
+            opacity: 0;
+            transition: all 1.1s;
+        }
+
+        .coordinates-show {
+            opacity: 1;
+        }
+
+        .poster {
+            width: 760px;
+            height: 936px;
+            overflow: hidden;
+
+            img {
+                transition: all 1.1s;
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .poster-show {
+            img {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
     }
 

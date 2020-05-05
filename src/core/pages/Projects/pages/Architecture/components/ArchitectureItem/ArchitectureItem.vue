@@ -14,6 +14,7 @@
     </div>
 </template>
 <script>
+import { mapMutations } from "vuex";
 import { 
     CHANGE_ROUTE_DELAY, 
     ROUTER_URLS
@@ -37,7 +38,9 @@ export default {
         }, this.duration)
     },
     methods: {
+        ...mapMutations(['setStartChangeRoute']),
         handleClick() {
+            this.setStartChangeRoute(true);
             setTimeout(() => {
                 this.$router.push(ROUTER_URLS.ARCHITECTURE_PAGE.replace(':id', this.id));
             }, CHANGE_ROUTE_DELAY);

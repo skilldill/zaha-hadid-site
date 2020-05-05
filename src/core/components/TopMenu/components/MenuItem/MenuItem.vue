@@ -14,7 +14,7 @@
 </template>
 <script>
 import { mapMutations } from "vuex";
-import { CHANGE_ROUTE_DELAY } from "../../../../../shared/constants";
+import { CHANGE_ROUTE_DELAY, ROUTER_URLS } from "../../../../../shared/constants";
 
 export default {
     name: "MenuItem",
@@ -43,6 +43,15 @@ export default {
             this.setStartChangeRoute(true);
             setTimeout(() => this.$router.push(this.path), CHANGE_ROUTE_DELAY);
             
+        },
+        detectRoute() {
+            this.isActive = this.$route.path.indexOf(this.path) !== -1;
+            
+            // Если находимся на странице элемента
+            if (!this.isActive && this.path === ROUTER_URLS.PROJECTS) {
+                console.log(1);
+                this.isActive = this.$route.path.include('architecture')
+            } 
         }
     },
     
