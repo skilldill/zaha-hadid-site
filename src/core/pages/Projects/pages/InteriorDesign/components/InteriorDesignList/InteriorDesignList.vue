@@ -10,6 +10,7 @@
             :key="index"
             :delay="(index + 1) * 500"
             :interior="interior"
+            :id="index"
             :reverse="index % 2 !== 0"
         />
     </div>

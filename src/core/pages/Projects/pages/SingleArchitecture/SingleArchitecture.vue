@@ -3,16 +3,25 @@
         <div class="header">
             <div class="header-description">
                 <h1 
-                    :class="{'title': true, 'title-show': descriptionShow}"
+                    :class="{
+                        'title': true, 
+                        'title-show': descriptionShow && !startChangeRoute
+                    }"
                 >{{architecture.name}}</h1>
                 <p 
-                    :class="{'description': true, 'description-show': descriptionShow}"
+                    :class="{
+                        'description': true, 
+                        'description-show': descriptionShow && !startChangeRoute
+                    }"
                     v-for="(part, index) in architecture.additional.descriptionParts"
                     :key="index"
                 >{{part}}</p>
                 <div class="coordinates-block">
                     <p 
-                        :class="{'coordinates': true, 'coordinates-show': descriptionShow }"
+                        :class="{
+                            'coordinates': true, 
+                            'coordinates-show': descriptionShow && !startChangeRoute
+                        }"
                         v-for="(item, index) in architecture.additional.coordinates"
                         :key="index"
                     >
@@ -21,7 +30,10 @@
                 </div>
             </div>
             <div 
-                :class="{'poster': true, 'poster-show': posterShow}">
+                :class="{
+                    'poster': true, 
+                    'poster-show': posterShow && !startChangeRoute
+                }">
                 <img 
                     :src="architecture.additional.poster" 
                     :alt="architecture.name"
@@ -55,7 +67,8 @@ export default {
     },
     computed: {
         ...mapState({
-            architectures: state => state.architecture.architectures
+            architectures: state => state.architecture.architectures,
+            startChangeRoute: state => state.stateRoutes.startChangeRoute
         })
     },
     methods: {

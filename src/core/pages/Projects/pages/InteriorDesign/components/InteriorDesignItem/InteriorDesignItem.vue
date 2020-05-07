@@ -4,6 +4,7 @@
             'interior-design-item': true,
             'interior-design-item-reverse': reverse
         }"
+        @click="handleClick"
     >
         <div 
             :class="{
@@ -25,6 +26,12 @@
     </div>
 </template>
 <script>
+import { mapMutations } from "vuex";
+import { 
+    CHANGE_ROUTE_DELAY,
+    ROUTER_URLS
+} from "../../../../../../../shared/constants";
+
 export default {
     name: "InteriorDesignItem",
     props: {
@@ -36,7 +43,8 @@ export default {
         delay: {
             type: Number,
             default: 100
-        }
+        },
+        id: Number
     },
     data() {
         return {
@@ -52,6 +60,15 @@ export default {
         }, this.delay);
 
         setTimeout(() => { this.descriptionBlack = true }, this.delay + 500);
+    },
+    methods: {
+        ...mapMutations(['setStartChangeRoute']),
+        handleClick() {
+            this.setStartChangeRoute(true);
+            setTimeout(() => {
+                this.$router.push(ROUTER_URLS.INTERIOR_DESIGN_PAGE.replace(':id', this.id));
+            }, CHANGE_ROUTE_DELAY);
+        }
     }
 }
 </script>
