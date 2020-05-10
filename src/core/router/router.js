@@ -11,7 +11,8 @@ import {
 import { projectPages } from "../pages/Projects";
 import {
     SingleArchitecture,
-    SingleInteriorDesign
+    SingleInteriorDesign,
+    SingleDesign
 } from "../pages/Projects/pages";
 
 Vue.use(VueRouter);
@@ -35,6 +36,11 @@ const routes = [
         path: ROUTER_URLS.INTERIOR_DESIGN_PAGE, 
         name: "interior_design_page",
         component: SingleInteriorDesign
+    },
+    {
+        path: ROUTER_URLS.DESIGN_PAGE,
+        name: "design_page",
+        component: SingleDesign
     }
 ]
 

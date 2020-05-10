@@ -4,6 +4,7 @@ import { InteriorDesign } from "./InteriorDesign";
 import { Masterplans } from "./Masterplans";
 import { SingleArchitecture } from "./SingleArchitecture";
 import { SingleInteriorDesign } from "./SingleInteriorDesign";
+import { SingleDesign } from "./SingleDesign";
 
 export {
     Architecture,
@@ -11,5 +12,6 @@ export {
     InteriorDesign,
     Masterplans,
     SingleArchitecture,
-    SingleInteriorDesign
+    SingleInteriorDesign,
+    SingleDesign
 }
