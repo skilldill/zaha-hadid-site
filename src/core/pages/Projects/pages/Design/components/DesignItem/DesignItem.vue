@@ -1,5 +1,11 @@
 <template>
-    <div :class="{'design-item': true, 'design-item-loaded': changeOriginCurtains}">
+    <div 
+        :class="{
+            'design-item': true, 
+            'design-item-loaded': changeOriginCurtains    
+        }"
+        @click="handleClick"
+    >
         <div :class="{'picture': true, 'picture-show': changeOriginCurtains}">
             <!-- <div 
                 :class="{
@@ -17,6 +23,9 @@
     </div>    
 </template>
 <script>
+import { mapMutations } from "vuex";
+import { CHANGE_ROUTE_DELAY, ROUTER_URLS } from "../../../../../../../shared/constants";
+
 export default {
     name: "DesignItem",
     props: {
@@ -24,13 +33,24 @@ export default {
             type: Object,
             required: true
         },
-        delay: Number
+        delay: Number,
+        id: Number
     },
     data() {
         return {
             openCurtains: false,
             closeCurtains: false,
             changeOriginCurtains: false
+        }
+    },
+    methods: {
+        ...mapMutations(['setStartChangeRoute']),
+        handleClick() {
+            const { DESIGN_PAGE } = ROUTER_URLS;
+            this.setStartChangeRoute(true);
+            setTimeout(() => {
+                this.$router.push(DESIGN_PAGE.replace(':id', this.id))
+            }, CHANGE_ROUTE_DELAY)
         }
     },
     created() {

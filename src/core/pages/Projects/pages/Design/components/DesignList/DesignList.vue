@@ -10,6 +10,7 @@
             :key="index"
             :design="design"
             :delay="index * 500"
+            :id="index"
         />
     </div>
 </template>

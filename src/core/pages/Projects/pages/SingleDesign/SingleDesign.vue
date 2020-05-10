@@ -1,9 +1,18 @@
 <template>
     <div class="single-design">
-        <div class="title">
+        <div 
+            :class="{
+                'title': true,
+                'title-show': showTitle && !startChangeRoute
+            }"
+        >
             <app-run-stroke :text="design.name"/>
         </div>
-        <div class="header">
+        <div 
+            :class="{
+                'header': true,
+                'header-show': showHeader && !startChangeRoute
+            }">
             <p>{{design.additional.description}}</p>
             <div class="poster">
                 <img 
@@ -37,7 +46,7 @@
     </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import { RunStroke } from "./components/RunStroke";
 
 export default {
@@ -48,21 +57,28 @@ export default {
     data() {
         return {
             design: null,
-            titleLength: 924
+            titleLength: 924,
+            showTitle: false,
+            showHeader: false
         }
     },
     computed: {
         ...mapState({
-            designs: (state) => state.design.designs
+            designs: (state) => state.design.designs,
+            startChangeRoute: (state) => state.stateRoutes.startChangeRoute
         })
     },
     methods: {
-        writeWord() {
-        }
+        ...mapMutations(['setStartChangeRoute'])
     },
     created() {
+        this.setStartChangeRoute(false);
+
         const { id } = this.$route.params;
         this.design = this.designs[id];
+
+        setTimeout(() => { this.showHeader = true }, 300);
+        setTimeout(() => { this.showTitle = true }, 1000);
     }
 }
 </script>
@@ -75,6 +91,12 @@ export default {
         display: flex;
         transform: translate(-100px);
         width: calc(100% + 200px);
+        opacity: 0;
+        transition: all 1.3s;
+    }
+
+    .title-show {
+        opacity: 1;
     }
 
     .header {
@@ -94,6 +116,13 @@ export default {
             margin: 0;
             padding: 0;
         }
+
+        transition: all .8s;
+        opacity: 0;
+    }
+
+    .header-show {
+        opacity: 1;
     }
 
     .middle {
