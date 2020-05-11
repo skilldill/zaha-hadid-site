@@ -5,7 +5,9 @@ import { ROUTER_URLS } from "../../shared/constants";
 import {
     Home,
     About,
-    Projects
+    Projects,
+    Team,
+    TeamatePage
 } from "../pages";
 
 import { projectPages } from "../pages/Projects";
@@ -21,6 +23,7 @@ const routes = [
     { path: ROUTER_URLS.BASE, redirect: ROUTER_URLS.HOME },
     { path: ROUTER_URLS.HOME, name: "home", component: Home },
     { path: ROUTER_URLS.ABOUT, name: "about", component: About },
+    { path: ROUTER_URLS.TEAM, name: "team", component: Team },
     { 
         path: ROUTER_URLS.PROJECTS, 
         name: "projects", 
@@ -41,6 +44,11 @@ const routes = [
         path: ROUTER_URLS.DESIGN_PAGE,
         name: "design_page",
         component: SingleDesign
+    },
+    {
+        path:  ROUTER_URLS.TEAMATE_PAGE,
+        name: "teamate_page",
+        component: TeamatePage
     }
 ]
 

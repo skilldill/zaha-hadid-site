@@ -59,7 +59,8 @@ export default {
         $route() {
             this.showFilnder = 
                 this.$route.path.indexOf("architecture") !== -1 ||
-                this.$route.path.indexOf("design") !== -1
+                this.$route.path.indexOf("design") !== -1 || 
+                this.$route.path.indexOf("team") !== -1
         }
     },
     methods: {

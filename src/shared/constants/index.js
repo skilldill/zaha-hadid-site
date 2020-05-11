@@ -8,9 +8,10 @@ export const ROUTER_URLS = {
     NEWS: "/news",
     PUBLICATIONS: "/publications",
     CONTACTS: "/contacts",
-    ARCHITECTURE_PAGE: "/architecture_page/:id",
-    INTERIOR_DESIGN_PAGE: "/interior_design_page/:id",
-    DESIGN_PAGE: "/design_page/:id"
+    ARCHITECTURE_PAGE: "/arch_page/:id",
+    INTERIOR_DESIGN_PAGE: "/int_des_page/:id",
+    DESIGN_PAGE: "/des_page/:id",
+    TEAMATE_PAGE: "/teamate/:id"
 }
 
 export const CHANGE_ROUTE_DELAY = 1000;
