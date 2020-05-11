@@ -1,13 +1,20 @@
 <template>
     <div class="teamate">
         <div class="description">
-            <div class="avatar">
+            <div :class="{
+                    'avatar': true,
+                    'avatar-show': showAvatar && !startChangeRoute
+                }"
+            >
                 <img 
                     :src="director.avatarBig" 
                     :alt="director.name"
                 >
             </div>
-            <div class="about">
+            <div :class="{
+                'about': true,
+                'about-show': showAbout && !startChangeRoute
+            }">
                 <div class="name">
                     <h1>{{director.name}}</h1>
                 </div>
@@ -46,7 +53,9 @@ export default {
     name: "TeamatePage",
     data() {
         return {
-            director: null
+            director: null,
+            showAvatar: false,
+            showAbout: false
         }
     },
     computed: {
@@ -75,6 +84,9 @@ export default {
         } else { 
             this.director = this.directors[id];
         }
+
+        setTimeout(() => { this.showAvatar = true }, 100);
+        setTimeout(() => { this.showAbout = true }, 600);
     }
 }
 </script>
@@ -88,14 +100,28 @@ export default {
 
         .avatar {
             flex: 1;
+            width: 500px;
+            height: 700px;
+            overflow: hidden;
 
             img {
-                width: 500px;
+                transition: all .8s;
+                opacity: 0;
+                transform: scale(1.2);
+            }
+        }
+
+        .avatar-show {
+            img {
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
         .about {
             flex: 1;
+            transition: all .8s;
+            opacity: 0;
 
             .name {
                 width: 619px;
@@ -133,6 +159,10 @@ export default {
                 font-size: 16px;
                 line-height: 24px;
             }
+        }
+
+        .about-show {
+            opacity: 1;
         }
     }
 

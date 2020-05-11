@@ -2,12 +2,24 @@
     <div class="home-bottom">
         <div class="part">
             <div class="photo-zaha">
-                <img src="../../../../../assets/home/home-bottom-zaha.png" alt="zaha-hadid">
+                <img 
+                    style="margin-top: 20px"
+                    src="../../../../../assets/home/home-bottom-zaha.png" 
+                    alt="zaha-hadid"
+                >
             </div>
         </div>
         <div class="part">
+            <p class="description-bottom">
+                Many architects are called on to create new projects that stand as symbols of social progress—but none delivered as regularly, as unexpectedly and as spectacularly as Zaha Hadid. 
+            </p>
             <div class="photo-steps">
-                <img src="../../../../../assets/home/home-bottom-steps.png" alt="steps">
+                <img 
+                    style="margin-top: 20px"
+                    src="../../../../../assets/home/home-bottom-steps.png" 
+                    alt="steps"
+                    width="700"
+                >
             </div>
             <div class="control">
                 <app-btn-up @click="handleClickUp" />
@@ -35,12 +47,19 @@ export default {
 </script>
 <style lang="scss" scoped>
 .home-bottom {
-    margin-top: 106px;
+    margin-top: 220px;
     display: flex;
     padding-bottom: 63px;
 
     .part {
         flex: 1;
+
+        .description-bottom {
+            width: 450px;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 28px;
+        }
     }
 
     .photo-zaha {
@@ -56,11 +75,11 @@ export default {
     }
 
     .photo-steps {
-        margin-top: 320px;
+        margin-top: 108px;
         width: 100%;
 
         img {
-            width: 100%;
+            width: 700px;
         }
     }
 
@@ -77,7 +96,7 @@ export default {
     .home-bottom {
         .photo-steps {
             img {
-                width: 760px;
+                width: 700px;
             }
         }
     }

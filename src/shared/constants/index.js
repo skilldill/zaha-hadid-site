@@ -11,7 +11,7 @@ export const ROUTER_URLS = {
     ARCHITECTURE_PAGE: "/arch_page/:id",
     INTERIOR_DESIGN_PAGE: "/int_des_page/:id",
     DESIGN_PAGE: "/des_page/:id",
-    TEAMATE_PAGE: "/teamate/:id"
+    TEAMATE_PAGE: "/director/:id"
 }
 
 export const CHANGE_ROUTE_DELAY = 1000;

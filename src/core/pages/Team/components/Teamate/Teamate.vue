@@ -1,5 +1,7 @@
 <template>
-    <div :class="{
+    <div
+    @click="handleClick" 
+    :class="{
         'teamate': true,
         'teamate-show': showTemate
     }">
@@ -15,6 +17,9 @@
     </div>
 </template>
 <script>
+import { mapMutations } from "vuex";
+import { CHANGE_ROUTE_DELAY } from "../../../../../shared/constants";
+
 export default {
     name: "Teamate",
     props: {
@@ -27,6 +32,16 @@ export default {
     data() {
         return {
             showTemate: false
+        }
+    },
+    methods: {
+        ...mapMutations(['setStartChangeRoute']),
+        handleClick() {
+            this.setStartChangeRoute(true);
+            setTimeout(() => {
+                // Заглушка на одного директора
+                this.$router.push('/director/0-0');
+            }, CHANGE_ROUTE_DELAY)
         }
     },
     created() {
