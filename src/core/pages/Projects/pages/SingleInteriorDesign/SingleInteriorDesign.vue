@@ -87,6 +87,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .singl-interior-design {
+    padding-bottom: 100px;
+
     .header {
         position: relative;
         margin-top: 90px;

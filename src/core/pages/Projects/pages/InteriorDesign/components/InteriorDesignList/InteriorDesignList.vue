@@ -42,6 +42,7 @@ export default {
     position: absolute;
     top: 135px;
     transition: all .5s;
+    padding-bottom: 100px;
 }
 
 .interior-design-list-show {

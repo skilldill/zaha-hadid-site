@@ -43,7 +43,7 @@ export default {
 <style lang="scss" scoped>
 .interior-design {
     position: relative;
-
+    
     .title {
         position: absolute;
         left: -102px;
