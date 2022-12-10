@@ -45,60 +45,52 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .home-bottom {
     margin-top: 220px;
     display: flex;
     padding-bottom: 63px;
+}
 
-    .part {
-        flex: 1;
+.part {
+    flex: 1;       
+}
 
-        .description-bottom {
-            width: 450px;
-            font-weight: normal;
-            font-size: 24px;
-            line-height: 28px;
-        }
-    }
+.description-bottom {
+    width: 450px;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+}
 
-    .photo-zaha {
-        overflow: hidden;
-        img {
-            transition: all .3s;
-            width: 550px;
+.photo-zaha {
+    overflow: hidden;
+    
+}
 
-            &:hover {
-                transform: rotate(360deg);
-            }
-        }
-    }
+.photo-zaha img {
+    transition: all .3s;
+    width: 550px;
+}
 
-    .photo-steps {
-        margin-top: 108px;
-        width: 100%;
+.photo-steps {
+    margin-top: 108px;
+    width: 100%;
+}
 
-        img {
-            width: 700px;
-        }
-    }
+.photo-steps img {
+    width: 700px;
+}
 
-    .control {
-        display: flex;
-        justify-content: center;
-        margin-top: 45px;
-
-        
-    }
+.control {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
 }
 
 @media screen and (min-width: 1400px) {
-    .home-bottom {
-        .photo-steps {
-            img {
-                width: 700px;
-            }
-        }
+    .home-bottom .photo-steps img {
+        width: 700px;
     }
 }
 </style>

@@ -49,38 +49,38 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .projects-menu-item {
     margin-bottom: 20px;
     cursor: pointer;
-    
-    a {
-        display: flex;
-        position: relative;
-        font-size: 150px;
-        font-weight: 500;
-        color: #000;
-        text-decoration: none;
-    }
+}
 
-    .effect-content {
-        position: absolute;
-        overflow: hidden;
-        transition: all .5s;
-        width: calc(100% - 0px);
+.projects-menu-item a {
+    display: flex;
+    position: relative;
+    font-size: 150px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+}
 
-        span {
-            display: block;
-            width: 1100px;
-        }
-    }
+.effect-content {
+    position: absolute;
+    overflow: hidden;
+    transition: all .5s;
+    width: calc(100% - 0px);
+}
 
-    .effect-content-hover {
-        width: 0px;
-    }
+.effect-content span {
+    display: block;
+    width: 1100px;
+}
 
-    .content {
-        color: #6FA7CC;
-    }
+.effect-content-hover {
+    width: 0px;
+}
+
+.content {
+    color: #6FA7CC;
 }
 </style>

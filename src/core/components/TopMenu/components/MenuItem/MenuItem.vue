@@ -57,7 +57,7 @@ export default {
     
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .decoration {
     background-color: #6FA7CC;
     width: 0px;
@@ -69,13 +69,16 @@ export default {
     list-style-type: none;
     margin-left: 52px;
 
-    a {
-        color: black;
-        text-decoration: none;
-        font-size: 16px;
-        cursor: pointer;
-    }
+    
 }
+
+.menu-item a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 .active {
     width: calc(100% + 0px);
 }

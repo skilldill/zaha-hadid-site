@@ -69,87 +69,88 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .home-header {
     width: 100%;
     padding-top: 100px;
+}
 
-    .photo-wrap {
-        width: 1400px;
-        height: 600px;
-        margin-top: 55px;
+.photo-wrap {
+    width: 1400px;
+    height: 600px;
+    margin-top: 55px;        
+}
+.photo {
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+    width: 1400px;
+    height: 0px;
+    transition: all 1s;
+}
 
-        .photo {
-            background-color: white;
-            overflow: hidden;
-            position: relative;
-            width: 1400px;
-            height: 0px;
-            transition: all 1s;
+.photo img {
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    transition: all 1s;
+}
 
-            img {
-                top: 0;
-                left: 0;
-                position: absolute;
-                opacity: 0;
-                transition: all 1s;
-            }
+.photo .showPhoto { 
+    opacity: 1;
+}
 
-            .showPhoto { 
-                opacity: 1;
-            }
-        }
+.fadein-photo {
+    height: 600px;
+}
 
-        .fadein-photo {
-            height: 600px;
-        }
+.fadeout-photo {
+    height: 0px;
+    transition: all .5s;
+}
 
-        .fadeout-photo {
-            height: 0px;
-            transition: all .5s;
-        }
-    }
+.description {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
 
-    .description {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+.description .q-wrap {
+    width: 0px;
+    transition: all .4s;
+    overflow: hidden;
 
-        .q-wrap {
-            width: 0px;
-            transition: all .4s;
-            overflow: hidden;
+}
+.description .q-wrap q {
+    display: block;
+    width: 560px;
+    font-size: 36px;
+    line-height: 45px;
+}
 
-            q {
-                display: block;
-                width: 560px;
-                font-size: 36px;
-                line-height: 45px;
-            }
-        }
+.fadein-q-wrap {
+    width: 560px;
+}
 
-        .fadein-q-wrap {
-            width: 560px;
-        }
+.p-wrap {
+    width: 0px;
+    overflow: hidden;
+    transition: all .4s;
 
-        .p-wrap {
-            width: 0px;
-            overflow: hidden;
-            transition: all .4s;
+    
+}
 
-            p {
-                width: 278px;
-                color: #7C7B7B;
-                font-size: 16px;
-                margin: 0;
-                text-align: right;
-                line-height: 20px;
-            }
-        }
+.p-wrap  p {
+    width: 278px;
+    color: #7C7B7B;
+    font-size: 16px;
+    margin: 0;
+    text-align: right;
+    line-height: 20px;
+}
 
-        .fadein-p-wrap {
-            width: 278px;
-        }
-    }
+.fadein-p-wrap {
+    width: 278px;
 }
 </style>

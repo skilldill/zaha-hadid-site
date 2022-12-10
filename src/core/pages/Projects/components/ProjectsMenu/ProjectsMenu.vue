@@ -66,7 +66,7 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .projects-menu {
     position: relative;
     transition: all 1s;
@@ -74,30 +74,28 @@ export default {
     height: 1px;
     width: 1020px;
     opacity: 0;
+}
+.projects-menu .border-top { top: 0px }
+.projects-menu .border-bottom { bottom: 0px }
+.projects-menu .hide-border { width: 0px }
 
-    .border-top { top: 0px }
-    .border-bottom { bottom: 0px }
-    .hide-border { width: 0px }
-
-    .items {
-        margin: 0;
-        padding: 0;
-        width: 1020px;
-
-        .item {
-            list-style-type: none;
-            margin-bottom: 20px;
-
-            a {
-                font-size: 150px;
-                font-weight: 500;
-                color: #000;
-                text-decoration: none;
-            }
-        }
-    }
+.projects-menu .items {
+    margin: 0;
+    padding: 0;
+    width: 1020px;
 }
 
+.item {
+    list-style-type: none;
+    margin-bottom: 20px;  
+}
+
+.item a {
+    font-size: 150px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+}
 .projects-menu-open {
     height: 750px;
     opacity: 1;

@@ -29,34 +29,34 @@ export default {
     name: "About"
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .about {
-    padding-bottom: 80px;
+    padding-bottom: 80px;    
+}
 
-    .title {
-        font-weight: 500;
-        font-size: 150px;
-        margin-bottom: 47px;
-        text-align: right;
-    }
+.title {
+    font-weight: 500;
+    font-size: 150px;
+    margin-bottom: 47px;
+    text-align: right;
+}
 
-    .content {
-        margin-top: 110px;
-        display: flex;
+.content {
+    margin-top: 110px;
+    display: flex; 
+}
 
-        .part {
-            flex: 1;
+.part {
+    flex: 1;
+}
 
-            p {
-                width: 600px;
-                font-size: 36px;
-                line-height: 35px;
-            }
-        }
+.part p {
+    width: 600px;
+    font-size: 36px;
+    line-height: 35px;
+}
 
-        .part-text {
-            padding-top: 20px;
-        }
-    }
+.part-text {
+    padding-top: 20px;
 }
 </style>

@@ -54,30 +54,30 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .finder {
     margin-left: 70px;
     opacity: 0;
     transition: opacity .7s;
+}
 
-    .control {
-        position: relative;
+.control {
+    position: relative;
+}
 
-        input {
-            border: none;
-            border-bottom: 1px solid #898787;
-            width: 246px;
-            outline: none;
-            font-size: 18px;
-            padding-bottom: 10px;
-        }
+.control input {
+    border: none;
+    border-bottom: 1px solid #898787;
+    width: 246px;
+    outline: none;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
 
-        img {
-            position: absolute;
-            left: 0px;
-            bottom: 10px;
-        }
-    }
+.control img {
+    position: absolute;
+    left: 0px;
+    bottom: 10px;
 }
 
 .finder-show {

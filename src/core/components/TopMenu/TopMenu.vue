@@ -76,15 +76,15 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .top-menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
+}
 
-    .menu-items {
-        display: flex;
-    }
+.menu-items {
+    display: flex;
 }
 </style>

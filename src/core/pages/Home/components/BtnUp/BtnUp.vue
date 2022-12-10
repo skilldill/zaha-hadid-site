@@ -29,7 +29,7 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .btn-up {
     background-color: transparent;
     border: 2px solid #767676;
@@ -38,9 +38,10 @@ export default {
     outline: none;
     transition: all .3s;
 
-    &:hover {
-        background-color: #767676;
-        color: white;
-    }
+   
+}
+.btn-up :hover {
+    background-color: #767676;
+    color: white;
 }
 </style>

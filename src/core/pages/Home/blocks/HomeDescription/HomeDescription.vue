@@ -35,54 +35,50 @@ export default {
     name: "HomeDescription"
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .home-description {
     display: flex;
     margin-top: 200px;
+}
 
-    .part {
-        flex: 1;
-    }
+.part {
+    flex: 1;
+}
 
-    .content {
-        width: 550px;
-        margin-right: 80px;
-        
-        .title {
-            font-size: 105px;
-            font-weight: normal;
-            margin: 0;
-        }
+.content {
+    width: 550px;
+    margin-right: 80px; 
+}
 
-        p {
-            width: 450px;
-            font-weight: normal;
-            font-size: 24px;
-            line-height: 28px;
-        }
+.content .title {
+    font-size: 105px;
+    font-weight: normal;
+    margin: 0;
+}
 
-        img {
-            margin-top: 28px;
-            width: 100%;
-        }
-    }
+.content p {
+    width: 450px;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+}
 
-    .photo {
-        width: 100%;
+.content img {
+    margin-top: 28px;
+    width: 100%;
+}
 
-        img {
-            width: 100%;
-        }
-    }
+.photo {
+    width: 100%;
+}
+
+.photo img {
+    width: 100%;
 }
 
 @media screen and (min-width: 1600px) {
-    .home-description {
-        .photo {
-            img {
-                width: 760px;
-            }
-        }
+    .home-description .photo img {
+        width: 760px;
     }
 }
 </style>
